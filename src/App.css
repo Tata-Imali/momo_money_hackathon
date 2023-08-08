@@ -1,8 +1,8 @@
 .App {
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 150px;
   background-color: #3E3C3C;
 }
 
@@ -34,10 +34,7 @@
 
 
 
-.view-container {
-  margin-top: 20px;
-  margin-bottom: 20px; /* Added bottom margin */
-}
+
 
 
 

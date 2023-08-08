@@ -54,7 +54,8 @@ function TopUp() {
         <img src={logo} alt="Logo" className="logo" />
       </div>
       <div className="top-up-form">
-        <h2 style={{ fontSize: '16px', marginBottom: '16px' }} className="form-heading">Top Up</h2>
+        <h2 className="form-heading">Top Up</h2>
+        <p className="info-text">Top up your iMali balance using MoMo money</p>
         <div className="input-container">
           <label className="top-up-label">Phone Number:</label>
           <input
@@ -64,7 +65,7 @@ function TopUp() {
             className="top-up-input"
           />
         </div>
-        <div className="input-container" style={{ marginBottom: '14px', marginTop: '10px' }}>
+        <div className="input-container">
           <label className="top-up-label">Amount:</label>
           <input
             type="number"
@@ -76,13 +77,14 @@ function TopUp() {
         <button onClick={handleTopUp} className="top-up-button">
           Top Up
         </button>
-        <div className="logo-container">
-          <img src={logoo} alt="Logo" className="top-up-logoo" />
+        <div className="logoo-container">
+          <img src={logoo} alt="Logo" className="top-up-logoo"  />
         </div>
       </div>
       <ToastContainer />
     </div>
   );
 }
+
 
 export default TopUp;

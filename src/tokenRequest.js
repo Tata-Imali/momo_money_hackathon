@@ -112,10 +112,11 @@ function TokenRequestView() {
         <img src={logo} alt="Logo" className="logo" />
       </div>
       <ToastContainer />
-      <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Requests:</h2>
+      <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Requests</h2>
+      <p className="info-text">Request a new loan below</p>
       <div>
         <label className="label">
-          Amount Requested:
+          Amount: 
           <input
             type="number"
             value={desiredAmount}
@@ -131,7 +132,7 @@ function TokenRequestView() {
         <table className="result-table">
           <tbody>
             <tr>
-              <td><p style={{ fontSize: '12px', color: '#FFFFFF' }}>Amount Requested:</p></td>
+              <td><p style={{ fontSize: '12px', color: '#FFFFFF' }}>Request Amount:</p></td>
               <td><p style={{ color: '#6BFE53' }}>{(desiredAmount * 0.01).toFixed(2)}</p></td>
             </tr>
             <tr>

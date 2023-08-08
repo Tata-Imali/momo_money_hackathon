@@ -53,17 +53,8 @@ function TransferForm() {
         <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
       </div> 
-        <h2>Repayments:</h2>
-          <div>
-            <label htmlFor="recipientAccountId">Recipient Account ID:</label>
-            <input
-              type="text"
-              id="recipientAccountId"
-              value="0.0.450078" // Fixed recipient account ID
-              readOnly // Add the readOnly attribute to prevent user input
-              disabled
-            />
-          </div>
+        <h2>Repayments</h2>
+        <p className="info-text">Repay outstanding debt below</p>
           <div>
             <label htmlFor="amount">Amount:</label>
             <input
@@ -73,7 +64,7 @@ function TransferForm() {
               onChange={(e) => setAmount(e.target.value)}
             />
           </div>
-          <button type="submit" onClick={handleTransfer}>Transfer Now</button>
+          <button type="submit" onClick={handleTransfer}>Repay Now</button>
         </form>
       </div>
     </div>

@@ -4,7 +4,8 @@ import TransferForm from "./transferForm";
 import TokenBalancesView from "./checkBalance";
 import TokenRequestView from "./tokenRequest";
 import DisplayTokenRequests from "./checkRequests";
-import TopUp from "./TopUp"; // Import the new TopUp component
+import TopUp from "./TopUp";
+import KYC from "./kyc.js"; // Import the KYC component
 import "./App.css";
 import logoH from './hedera-logo.png';
 
@@ -21,7 +22,7 @@ function App() {
             </li>
             <li>
               <Link to="/balance" className="nav-link">
-                Balance Check
+                Accounts
               </Link>
             </li>
             <li>
@@ -39,6 +40,11 @@ function App() {
                 Top Up
               </Link>
             </li>
+            <li>
+              <Link to="/kyc" className="nav-link">
+                KYC Request
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -48,7 +54,8 @@ function App() {
             <Route path="/balance" element={<TokenBalancesView />} />
             <Route path="/request" element={<TokenRequestView />} />
             <Route path="/display" element={<DisplayTokenRequests />} />
-            <Route path="/topup" element={<TopUp />} /> {/* Add this new route */}
+            <Route path="/topup" element={<TopUp />} />
+            <Route path="/kyc" element={<KYC />} /> {/* Add this new route for KYC */}
           </Routes>
         </div>
         <div className="logo-containerHm">

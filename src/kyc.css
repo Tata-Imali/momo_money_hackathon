@@ -1,6 +1,6 @@
-/* TopUp.css */
+/* KYC.css */
 
-.top-up-container {
+.kyc-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -10,32 +10,17 @@
     border: 1px solid #000;
   }
   
-  .top-up-logo-container {
-    margin-bottom: 20px;
-  }
-  
-  .top-up-logo {
-    width: 100px;
-    height: auto;
-  }
-
-  .top-up-logoo {
-    width: 60px;
-    height: auto;
-    padding-top: 35px;
-  }
-  
-  .top-up-form-topup {
+  .kyc-form {
     text-align: center;
   }
   
-  .top-up-form-heading {
+  .form-heading {
     font-size: 20px;
     color: #FFFF;
     margin-bottom: 20px;
   }
   
-  .top-up-label {
+  .kyc-label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -44,7 +29,7 @@
     color: #FFFF;
   }
   
-  .top-up-input {
+  .kyc-input {
     width: 45%;
     padding: 10px;
     margin-bottom: 10px;
@@ -52,10 +37,10 @@
     border: 1px solid #000;
     box-sizing: border-box;
     color: #000;
-    background-color: #C2C2C2;;
+    background-color: #C2C2C2;
   }
   
-  .top-up-button {
+  .kyc-button {
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
@@ -64,12 +49,12 @@
     cursor: pointer;
   }
   
-  .top-up-button:hover {
+  .kyc-button:hover {
     background: #BDEE07;
   }
-
+  
   .info-text {
-    font-size: 8px;
+    font-size: 12px;
     color: #D5FF0A;
     padding: 2px;
     border-radius: 4px;
@@ -77,6 +62,35 @@
     text-align: center;
   }
   
-  .logoo-container {
-    text-align: right;
+  .table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #1E1E1E;
+    border-radius: 4px;
+    border: 1px solid #1E1E1E;
+  }
+  
+  .kyc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .kyc-table th,
+  .kyc-table td {
+    padding: 8px;
+    background-color: #333;
+    border: 1px solid #000;
+    color: white;
+  }
+  
+  .kyc-table th {
+    background-color: #333;
+    font-weight: bold;
+  }
+  
+  .kyc-h3 {
+    color: #FFF; /* Set the text color to white */
+    font-size: 18px;
+    margin-top: 20px;
   }

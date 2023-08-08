@@ -90,9 +90,9 @@ function TokenBalancesView() {
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
       </div>
-      
       <div className="token-balances-view">
-        <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Available Balance:</h2>
+        <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Accounts</h2>
+        <p className="info-text">Check your iMali balance below</p>
         <button onClick={handleCheckBalance}>Check Balance</button>
         {isLoading ? (
           <p style={{ fontSize: '16px', color: '#FFFFFF' }}>Loading...</p>
