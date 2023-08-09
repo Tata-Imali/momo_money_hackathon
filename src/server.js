@@ -15,7 +15,7 @@ app.post('/api/momo-topup', async (req, res) => {
     // Set your MoMo API URL and headers
     const momoApiUrl = 'https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay';
     const momoHeaders = {
-      Authorization: `Bearer ${'eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijk1ODBkNjcwLTJmYzAtNDNjZS05ZjVmLWNjYWI1Y2VjZTY5MSIsImV4cGlyZXMiOiIyMDIzLTA4LTA5VDExOjI0OjEwLjQyOSIsInNlc3Npb25JZCI6ImU1OWU2YzE5LTNkNWUtNGY0OS05NjQ1LWFlYTY2OTcxY2VkYyJ9.L6qJ50onvEghJ5KkjqTHpF7wzmgGApu5ucILx2PQP5Js3zIPINY45j9V2BzZWVcyR1vsdIQUEQwFxJTPlKIrdEl5Rx7qTkj8ZNpaQnt8Mt6P4iMpy1_YguudT90s6bQkQ3ub5ZOfytthQbnBnU_a_Nlam2YlcK39JjCZsWvF_oQbfLG6evfxzqEiVV6Qn92yLWQIZyopBndP1oHibyH8kY-McAj5HetbRmFePZlFfdkMzl3hKlr0fPOD9kYJRYTccyVCXeDafOIB3B8_AA2oMvxFVaGXMA8QTUTF1uoirK_RpU5_8H37Ti6qxtH1jgXM0rYSivAL0I1LVfuU2ujCLw'}`,
+      Authorization: `Bearer ${'eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6IjIzMjQ3MWQxLWE5Y2ItNGJlYS05ODI1LWUxZGFhY2FkNzRlYSIsImV4cGlyZXMiOiIyMDIzLTA4LTA5VDE4OjAxOjU4LjE2NiIsInNlc3Npb25JZCI6ImI2NDI5OGNiLTA0ZDEtNGE1OC05NWVhLTg0ZGQ0NWUwNzA3OCJ9.X_Vj0DaaR37LjsQshsKszTB3fPrqZ18ufH5IVMsOg8D3VKIt0J_0Db-O0eblET-Tlsrr4n0TecahCS7ZgQKxdVMcmniBTIJANE3UESBFZ2Kf1UwjOeuHO-fvgBSRE8YDrAl-ztLUi4BVwDeMC7Sg_7UP6SWNsY384mUTtVhoTiXXZhvI2SYfvIjeOAr1kXyQ1azBks_bgKStmXaE70UGQW_X62mmYF33RdhBl69wrdzj5es8pzNTB04lmhz8giq0HXfcJfb20ySizGWg1RBylII8ViLXQF3YX0LDQZpXZON914HXH7eQZTwCD8w6zlgwZR9kt3y-2nl96u2dcY-EeQ'}`,
       'X-Reference-Id': req.headers['x-reference-id'], // Use the generated UUID as X-Reference-Id
       'X-Target-Environment': 'sandbox',
       'Ocp-Apim-Subscription-Key': '7083bbb08a9441f1a666bada4679875a',
@@ -63,7 +63,7 @@ app.post('/api/kyc', async (req, res) => {
       // Set your MoMo KYC API URL and headers
       const momoKycApiUrl = `https://sandbox.momodeveloper.mtn.com/collection/v1_0/accountholder/msisdn/${phoneNumber}/basicuserinfo`;
       const momoKycHeaders = {
-        Authorization: `Bearer ${'eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijk1ODBkNjcwLTJmYzAtNDNjZS05ZjVmLWNjYWI1Y2VjZTY5MSIsImV4cGlyZXMiOiIyMDIzLTA4LTA5VDExOjI0OjEwLjQyOSIsInNlc3Npb25JZCI6ImU1OWU2YzE5LTNkNWUtNGY0OS05NjQ1LWFlYTY2OTcxY2VkYyJ9.L6qJ50onvEghJ5KkjqTHpF7wzmgGApu5ucILx2PQP5Js3zIPINY45j9V2BzZWVcyR1vsdIQUEQwFxJTPlKIrdEl5Rx7qTkj8ZNpaQnt8Mt6P4iMpy1_YguudT90s6bQkQ3ub5ZOfytthQbnBnU_a_Nlam2YlcK39JjCZsWvF_oQbfLG6evfxzqEiVV6Qn92yLWQIZyopBndP1oHibyH8kY-McAj5HetbRmFePZlFfdkMzl3hKlr0fPOD9kYJRYTccyVCXeDafOIB3B8_AA2oMvxFVaGXMA8QTUTF1uoirK_RpU5_8H37Ti6qxtH1jgXM0rYSivAL0I1LVfuU2ujCLw'}`,
+        Authorization: `Bearer ${'eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6IjIzMjQ3MWQxLWE5Y2ItNGJlYS05ODI1LWUxZGFhY2FkNzRlYSIsImV4cGlyZXMiOiIyMDIzLTA4LTA5VDE4OjAxOjU4LjE2NiIsInNlc3Npb25JZCI6ImI2NDI5OGNiLTA0ZDEtNGE1OC05NWVhLTg0ZGQ0NWUwNzA3OCJ9.X_Vj0DaaR37LjsQshsKszTB3fPrqZ18ufH5IVMsOg8D3VKIt0J_0Db-O0eblET-Tlsrr4n0TecahCS7ZgQKxdVMcmniBTIJANE3UESBFZ2Kf1UwjOeuHO-fvgBSRE8YDrAl-ztLUi4BVwDeMC7Sg_7UP6SWNsY384mUTtVhoTiXXZhvI2SYfvIjeOAr1kXyQ1azBks_bgKStmXaE70UGQW_X62mmYF33RdhBl69wrdzj5es8pzNTB04lmhz8giq0HXfcJfb20ySizGWg1RBylII8ViLXQF3YX0LDQZpXZON914HXH7eQZTwCD8w6zlgwZR9kt3y-2nl96u2dcY-EeQ'}`,
         'Ocp-Apim-Subscription-Key': '7083bbb08a9441f1a666bada4679875a',
         'X-Target-Environment': 'sandbox',
         'Content-Type': 'application/json',

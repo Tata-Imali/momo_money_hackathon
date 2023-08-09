@@ -26,18 +26,6 @@ const SignupPage = () => {
           </div>
           <h2>Sign Up</h2>
           <div>
-            <label htmlFor="userType">User Type:</label>
-            <select
-              id="userType"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-            >
-              <option value="">Select user type</option>
-              <option value="Admin">Admin</option>
-              <option value="Borrower">Borrower</option>
-            </select>
-          </div>
-          <div>
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
               type="tel"
@@ -56,6 +44,18 @@ const SignupPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
             />
+          </div>
+           <div>
+            <label htmlFor="userType">User Type:</label>
+            <select
+              id="userType"
+              value={userType}
+              onChange={(e) => setUserType(e.target.value)}
+            >
+              <option value="">Select user type</option>
+              <option value="Admin">Admin</option>
+              <option value="Borrower">Borrower</option>
+            </select>
           </div>
           <button type="submit">Sign Up</button>
         </form>

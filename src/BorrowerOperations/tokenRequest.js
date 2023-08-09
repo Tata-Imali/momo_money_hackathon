@@ -78,7 +78,7 @@ function TokenRequestView() {
       console.log('Token request stored in Firebase Realtime Database');
 
       // Display success toast
-      toast.success('Tokens transferred successfully!', { autoClose: 3000 });
+      toast.success('Loan request successful!', { autoClose: 3000 });
 
       // Reload the page
       setTimeout(() => {

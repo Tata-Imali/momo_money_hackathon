@@ -15,6 +15,23 @@ function App() {
   return (
     <Router>
       <div className="App">
+        
+
+        <div className="view-container">
+          <Routes>
+            <Route path="/transfer" element={<TransferForm />} />
+            <Route path="/balance" element={<TokenBalancesView />} />
+            <Route path="/request" element={<TokenRequestView />} />
+            <Route path="/display" element={<DisplayTokenRequests />} />
+            <Route path="/topup" element={<TopUp />} />
+            <Route path="/kyc" element={<KYC />} /> {/* Add this new route for KYC */}
+            <Route path="/signup" element={<SignupPage />} /> {/* Add this new route for Sign Up */}
+            <Route path="/login" element={<LoginPage />} /> {/* Add this new route for Login */}
+          </Routes>
+        </div>
+        <div className="logo-containerHm">
+          <img src={logoH} alt="Logo2" className="logoHm" />
+        </div>
         <nav>
           <ul className="nav-links">
             <li>
@@ -59,22 +76,6 @@ function App() {
             </li>
           </ul>
         </nav>
-
-        <div className="view-container">
-          <Routes>
-            <Route path="/transfer" element={<TransferForm />} />
-            <Route path="/balance" element={<TokenBalancesView />} />
-            <Route path="/request" element={<TokenRequestView />} />
-            <Route path="/display" element={<DisplayTokenRequests />} />
-            <Route path="/topup" element={<TopUp />} />
-            <Route path="/kyc" element={<KYC />} /> {/* Add this new route for KYC */}
-            <Route path="/signup" element={<SignupPage />} /> {/* Add this new route for Sign Up */}
-            <Route path="/login" element={<LoginPage />} /> {/* Add this new route for Login */}
-          </Routes>
-        </div>
-        <div className="logo-containerHm">
-          <img src={logoH} alt="Logo2" className="logoHm" />
-        </div>
       </div>
     </Router>
   );
