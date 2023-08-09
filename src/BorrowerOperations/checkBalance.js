@@ -88,7 +88,7 @@ function TokenBalancesView() {
   return (
     <div className="token-balances-view-container">
       <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logooo" />
       </div>
       <div className="token-balances-view">
         <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Accounts</h2>
