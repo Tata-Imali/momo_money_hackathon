@@ -94,3 +94,8 @@
     font-size: 18px;
     margin-top: 20px;
   }
+  .logo-kyc {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    max-width: 120px; /* Adjust the width as needed */
+  }

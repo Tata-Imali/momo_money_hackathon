@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './Tata-iMali-logo-colour-transparent.png';
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 import { Client, AccountId, PrivateKey, AccountBalanceQuery, TokenInfoQuery } from "@hashgraph/sdk";
 import './checkBalance.css';
 

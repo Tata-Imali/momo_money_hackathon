@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './kyc.css';
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
+
 
 function KYC() {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -41,6 +43,9 @@ function KYC() {
 
   return (
     <div className="kyc-container">
+      <div className="logo-container">
+        <img src={logo} alt="Logo-kyc" className="logo-kyc" />
+      </div>
       <h2 className="form-heading">KYC Request</h2>
       <p className="info-text">Enter user phone number to obtain basic user information</p>
       <div className="input-container">

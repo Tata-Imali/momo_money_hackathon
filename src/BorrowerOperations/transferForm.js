@@ -3,7 +3,7 @@ import { Client, TransferTransaction, TokenId } from "@hashgraph/sdk";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './transferForm.css';
-import logo from './Tata-iMali-logo-colour-transparent.png'
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png'
 
 function TransferForm() {
   const [amount, setAmount] = useState('');

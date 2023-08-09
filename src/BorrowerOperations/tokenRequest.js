@@ -5,7 +5,7 @@ import 'firebase/compat/database';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './tokenRequest.css';
-import logo from './Tata-iMali-logo-colour-transparent.png';
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 
 // Initialize Firebase with your project's configuration
 const firebaseConfig = {

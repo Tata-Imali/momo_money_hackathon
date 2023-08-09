@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from './Tata-iMali-logo-colour-transparent.png';
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import { Client, TransferTransaction } from '@hashgraph/sdk';

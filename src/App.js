@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import TransferForm from "./transferForm";
-import TokenBalancesView from "./checkBalance";
-import TokenRequestView from "./tokenRequest";
-import DisplayTokenRequests from "./checkRequests";
-import TopUp from "./TopUp";
-import KYC from "./kyc.js"; // Import the KYC component
+import TransferForm from "./BorrowerOperations/transferForm";
+import TokenBalancesView from "./BorrowerOperations/checkBalance";
+import TokenRequestView from "./BorrowerOperations/tokenRequest";
+import DisplayTokenRequests from "./AdminOperations/checkRequests";
+import TopUp from "./BorrowerOperations/TopUp";
+import KYC from "./AdminOperations/kyc.js"; // Import the KYC component
+import SignupPage from "./Onboarding/SignUp.js"; // Import the SignupPage component
+import LoginPage from "./Onboarding/login.js"; // Import the LoginPage component
 import "./App.css";
-import logoH from './hedera-logo.png';
+import logoH from './Branding/hedera-logo.png';
 
 function App() {
   return (
@@ -45,6 +47,16 @@ function App() {
                 KYC Request
               </Link>
             </li>
+            <li>
+              <Link to="/signup" className="nav-link">
+                Sign Up
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -56,10 +68,12 @@ function App() {
             <Route path="/display" element={<DisplayTokenRequests />} />
             <Route path="/topup" element={<TopUp />} />
             <Route path="/kyc" element={<KYC />} /> {/* Add this new route for KYC */}
+            <Route path="/signup" element={<SignupPage />} /> {/* Add this new route for Sign Up */}
+            <Route path="/login" element={<LoginPage />} /> {/* Add this new route for Login */}
           </Routes>
         </div>
         <div className="logo-containerHm">
-        <img src={logoH} alt="Logo2" className="logoHm" />
+          <img src={logoH} alt="Logo2" className="logoHm" />
         </div>
       </div>
     </Router>
