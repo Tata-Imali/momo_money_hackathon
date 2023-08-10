@@ -73,8 +73,19 @@
     margin-top: 1px;
   }
   
-  .logo {
-    width: 120px;
+  .logo-loginT {
+    width: 160px;
     height: auto;
   }
   
+  .new-user {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+  }
+  
+  .new-user a {
+    color: #D5FF0A;
+    text-decoration: underline;
+  }

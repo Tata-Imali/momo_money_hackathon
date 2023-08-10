@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { Link } from 'react-router-dom'; // Import the Link component
+import { ToastContainer, toast } from 'react-toastify';
+import { auth } from '../Firebase/config';
 import 'react-toastify/dist/ReactToastify.css';
-import logo from '../Branding/Tata-iMali-logo-colour-transparent.png'; // Make sure to provide the correct path
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 
-import './SignUp.css'; // Import your shared styling
+import './SignUp.css';
 
 const SignupPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState(''); // Added state for user type
+  const [userType, setUserType] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement your signup logic here
-    // You can use 'userType', 'phoneNumber', and 'password' for registration
+  const handleSignup = async () => {
+    
+
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters long');
+      return;
+    }
+
+    try {
+      await auth.createUserWithEmailAndPassword(`${phoneNumber}@yourappdomain.com`, password);
+
+      toast.success('Sign up successful!');
+    } catch (error) {
+      console.error('Sign up error:', error);
+      toast.error('Error signing up. Please try again.');
+    }
   };
 
   return (
     <div>
       <div className="container">
         <ToastContainer />
-        <form className="auth-form" onSubmit={handleSubmit}>
+        <form className="auth-form" onSubmit={handleSignup}>
           <div className="logo-container">
-            <img src={logo} alt="Logo" className="logo" />
+            <img src={logo} alt="Logo" className="logo-signup" />
           </div>
           <h2>Sign Up</h2>
           <div>
@@ -44,8 +58,11 @@ const SignupPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
             />
+            {password.length > 0 && password.length < 6 && (
+              <div className="password-warning">Password must be at least 6 characters long</div>
+            )}
           </div>
-           <div>
+          <div>
             <label htmlFor="userType">User Type:</label>
             <select
               id="userType"
@@ -58,6 +75,9 @@ const SignupPage = () => {
             </select>
           </div>
           <button type="submit">Sign Up</button>
+          <p className="already-have-account">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </form>
       </div>
     </div>

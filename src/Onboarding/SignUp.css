@@ -73,8 +73,24 @@
     margin-top: 1px;
   }
   
-  .logo {
-    width: 120px;
+  .logo-signup {
+    width: 160px;
     height: auto;
   }
   
+  .password-warning {
+    font-size: 8px;
+    color: #FE7253; /* Use the #FE7253 color or any other color you prefer */
+  }
+
+  .already-have-account {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+  }
+  
+  .already-have-account a {
+    color: #D5FF0A;
+    text-decoration: underline;
+  }

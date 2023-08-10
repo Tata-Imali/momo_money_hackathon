@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { auth } from '../Firebase/config';
 import 'react-toastify/dist/ReactToastify.css';
-import logo from '../Branding/Tata-iMali-logo-colour-transparent.png'; // Make sure to provide the correct path
+import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 
-import './login.css'; // Import your shared styling
+import './login.css';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implement your login logic here
-    // You can use 'phoneNumber' and 'password' for authentication
+
+    try {
+      await auth.signInWithEmailAndPassword(`${phoneNumber}@yourappdomain.com`, password);
+
+      toast.success('Login successful!');
+      onLogin(); // Trigger the onLogin prop to update the state
+
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error('Error logging in. Please check your credentials.');
+    }
   };
 
   return (
@@ -21,7 +32,7 @@ const LoginPage = () => {
         <ToastContainer />
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="logo-container">
-            <img src={logo} alt="Logo" className="logo" />
+            <img src={logo} alt="Logo" className="logo-loginT" />
           </div>
           <h2>Login</h2>
           <div>
@@ -45,6 +56,9 @@ const LoginPage = () => {
             />
           </div>
           <button type="submit">Login</button>
+          <p className="new-user">
+            New user? <Link to="/signup">Sign up</Link>
+          </p>
         </form>
       </div>
     </div>
