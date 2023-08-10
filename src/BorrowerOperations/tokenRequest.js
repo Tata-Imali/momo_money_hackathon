@@ -1,25 +1,10 @@
 import React, { useState } from 'react';
 import { Client, AccountId, PrivateKey, TokenAssociateTransaction, TokenWipeTransaction } from '@hashgraph/sdk';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/database';
+import { database } from '../Firebase/config'; // Import database instance
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './tokenRequest.css';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
-
-// Initialize Firebase with your project's configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCrYLjeiWV5hBjD5T1NsTZetAIM7AMcZIs",
-  authDomain: "tata-imali.firebaseapp.com",
-  databaseURL: "https://tata-imali-default-rtdb.firebaseio.com/",
-  projectId: "tata-imali",
-  storageBucket: "tata-imali.appspot.com",
-  messagingSenderId: "466924111082",
-  appId: "1:466924111082:web:52190e793d1bad77c60393",
-  measurementId: "G-NZZ3G80NNY"
-};
-
-firebase.initializeApp(firebaseConfig);
 
 function TokenRequestView() {
   const senderPrivateId = '0xd8db27a1af00d3b0a93f504fc13184de26d40cc08a5fe59b87379734fb125f34';
@@ -61,7 +46,6 @@ function TokenRequestView() {
       console.log('Request sent successfully');
 
       // Store the token request in Firebase Realtime Database
-      const database = firebase.database();
       const tokenRequestsRef = database.ref('token-requests');
       const requestTimestamp = new Date().toISOString().replace(/[.:]/g, '');
 

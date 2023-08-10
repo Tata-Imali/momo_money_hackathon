@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/database';
+import { database } from '../Firebase/config'; // Import database instance
 import { Client, TransferTransaction } from '@hashgraph/sdk';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './checkRequests.css';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCrYLjeiWV5hBjD5T1NsTZetAIM7AMcZIs",
-  authDomain: "tata-imali.firebaseapp.com",
-  databaseURL: "https://tata-imali-default-rtdb.firebaseio.com/",
-  projectId: "tata-imali",
-  storageBucket: "tata-imali.appspot.com",
-  messagingSenderId: "466924111082",
-  appId: "1:466924111082:web:52190e793d1bad77c60393",
-  measurementId: "G-NZZ3G80NNY"
-};
 
 const client = Client.forTestnet();
 client.setOperator('0.0.450078', '0xd8db27a1af00d3b0a93f504fc13184de26d40cc08a5fe59b87379734fb125f34');
@@ -27,7 +15,6 @@ function DisplayTokenRequests() {
   const [tokenRequests, setTokenRequests] = useState([]);
 
   useEffect(() => {
-    const database = firebase.database();
     const tokenRequestsRef = database.ref('token-requests');
 
     tokenRequestsRef
@@ -67,7 +54,6 @@ function DisplayTokenRequests() {
 
       console.log('Transaction ID:', transaction.transactionId);
 
-      const database = firebase.database();
       const tokenRequestsRef = database.ref('token-requests');
       await tokenRequestsRef.child(request.id).remove();
 
@@ -85,7 +71,7 @@ function DisplayTokenRequests() {
 
   async function rejectRequest(request) {
     try {
-      const database = firebase.database();
+      
       const tokenRequestsRef = database.ref('token-requests');
       await tokenRequestsRef.child(request.id).remove();
 
