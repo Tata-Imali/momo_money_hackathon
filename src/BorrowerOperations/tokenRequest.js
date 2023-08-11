@@ -93,7 +93,7 @@ function TokenRequestView() {
   return (
     <div className="container" style={{ color: 'white' }}>
       <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" id="logoTokenRequest" />
       </div>
       <ToastContainer />
       <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Requests</h2>

@@ -72,7 +72,10 @@
   margin-top: 16px;
 }
 
+#logoRepay {
+  max-width: 180px; /* Adjust the width as needed */
+}
+
 .logo {
-  width: 120px;
-  height: auto;
+  max-width: 180px; /* Adjust the width as needed */
 }

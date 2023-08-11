@@ -63,4 +63,7 @@
   margin: 0;
 }
 
+#logoTokenRequest {
+  max-width: 180px; /* Adjust the width as needed */
+}
 
