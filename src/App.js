@@ -8,6 +8,7 @@ import TopUp from './BorrowerOperations/TopUp';
 import KYC from './AdminOperations/kyc';
 import SignupPage from './Onboarding/SignUp';
 import LoginPage from './Onboarding/login';
+import WelcomeScreen from './Onboarding/welcome'; // Import the WelcomeScreen component
 
 import './App.css';
 import logoH from './Branding/hedera-logo.png';
@@ -21,12 +22,43 @@ function App() {
     setUserType(userType);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserType('');
+  };
+
   return (
     <Router>
       <div className="App">
         <div className="view-container">
           <Routes>
-            {isLoggedIn ? (
+            <Route
+              path="/welcome"
+              element={
+                isLoggedIn && userType === 'Borrower' ? (
+                  <WelcomeScreen />
+                ) : (
+                  <Navigate to="/signup" />
+                )
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                isLoggedIn ? <Navigate to="/welcome" /> : <SignupPage />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/welcome" />
+                ) : (
+                  <LoginPage onLogin={handleLogin} setUserType={setUserType} />
+                )
+              }
+            />
+            {isLoggedIn && (
               <>
                 {userType === 'Borrower' && (
                   <>
@@ -42,16 +74,11 @@ function App() {
                     <Route path="/checkrequests" element={<DisplayTokenRequests />} />
                   </>
                 )}
+                <Route path="/logout" element={<Navigate to="/login" />} />
               </>
-            ) : (
-              <>
-                <Route path="/signup" element={<SignupPage />} />
-                <Route
-                  path="/login"
-                  element={<LoginPage onLogin={handleLogin} setUserType={setUserType} />}
-                />
-                <Route path="/*" element={<Navigate to="/signup" />} />
-              </>
+            )}
+            {!isLoggedIn && (
+              <Route path="/*" element={<Navigate to="/signup" />} />
             )}
           </Routes>
         </div>
@@ -65,20 +92,20 @@ function App() {
                 <>
                   <li>
                     <Link to="/checkbalance" className="nav-link">
-                    Check Balance
+                      Check Balance
                     </Link>
-                </li>
-                <li>
+                  </li>
+                  <li>
                     <Link to="/tokenrequest" className="nav-link">
                       Request Loan
                     </Link>
-                </li>
-                <li>
+                  </li>
+                  <li>
                     <Link to="/transfer" className="nav-link">
                       Repayments
                     </Link>
-                </li>
-                <li>
+                  </li>
+                  <li>
                     <Link to="/topup" className="nav-link">
                       Top Up
                     </Link>
@@ -99,6 +126,11 @@ function App() {
                   </li>
                 </>
               )}
+              <li>
+                <Link to="/logout" onClick={handleLogout} className="nav-link">
+                  Logout
+                </Link>
+              </li>
             </ul>
           </nav>
         )}
