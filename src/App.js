@@ -64,23 +64,23 @@ function App() {
               {userType === 'Borrower' && (
                 <>
                   <li>
-                    <Link to="/topup" className="nav-link">
-                      Top Up
+                    <Link to="/checkbalance" className="nav-link">
+                    Check Balance
                     </Link>
-                  </li>
-                  <li>
+                </li>
+                <li>
                     <Link to="/tokenrequest" className="nav-link">
                       Request Loan
                     </Link>
-                  </li>
-                  <li>
+                </li>
+                <li>
                     <Link to="/transfer" className="nav-link">
                       Repayments
                     </Link>
-                  </li>
-                  <li>
-                    <Link to="/checkbalance" className="nav-link">
-                      Check Balance
+                </li>
+                <li>
+                    <Link to="/topup" className="nav-link">
+                      Top Up
                     </Link>
                   </li>
                 </>
