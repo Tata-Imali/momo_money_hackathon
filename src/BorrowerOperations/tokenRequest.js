@@ -15,7 +15,9 @@ function TokenRequestView() {
   const [requestDate, setRequestDate] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
 
-  const handleTokenRequest = async () => {
+  const handleTokenRequest = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    
     try {
       // Your account ID and private key
       const senderPrivateKey = PrivateKey.fromString(senderPrivateId);
@@ -64,10 +66,7 @@ function TokenRequestView() {
       // Display success toast
       toast.success('Loan request successful!', { autoClose: 3000 });
 
-      // Reload the page
-      setTimeout(() => {
-        window.location.reload(); // Reload the page after 3 seconds
-      }, 3000);
+      
     } catch (error) {
       console.error('Error sending token request:', error);
     }

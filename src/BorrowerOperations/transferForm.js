@@ -25,9 +25,7 @@ function TransferForm() {
     console.log("Transaction Receipt:", receipt);
 
     toast.success('Tokens transferred successfully!', { autoClose: 3000 }); // Display success message
-    setTimeout(() => {
-      window.location.reload(); // Reload the page after 3 seconds
-    }, 3000);
+    
   }
 
   const handleTransfer = async () => {
@@ -51,7 +49,7 @@ function TransferForm() {
         <ToastContainer /> {/* Add the ToastContainer component */}
         <form className="transfer-form" onSubmit={handleSubmit}>
         <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" id="logoRepay" />
       </div> 
         <h2>Repayments</h2>
         <p className="info-text">Repay outstanding debt below</p>

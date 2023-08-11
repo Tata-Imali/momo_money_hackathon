@@ -60,10 +60,7 @@ function DisplayTokenRequests() {
       // Show success notification
       toast.success('Token transfer accepted successfully!', { autoClose: 3000 });
 
-      // Reload the page after the notification disappears
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      
     } catch (error) {
       console.error('Error accepting token request:', error);
     }
@@ -78,10 +75,7 @@ function DisplayTokenRequests() {
       // Show success notification
       toast.error('Token transfer rejected!', { autoClose: 3000 });
 
-      // Reload the page after the notification disappears
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      
     } catch (error) {
       console.error('Error rejecting token request:', error);
     }
