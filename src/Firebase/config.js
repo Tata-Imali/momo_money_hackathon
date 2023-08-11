@@ -2,6 +2,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
+import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,10 +19,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// Initialize Realtime Database
+// Initialize Realtime Database - used to store loan requests in real time database
 const database = firebaseApp.database();
 
-// Initialize Authentication
+// Initialize Authentication - used to store user sign ups
 const auth = firebaseApp.auth();
 
-export { database, auth };
+// Initialize Firestore - used to store userType info assocaited with each user
+const firestore = firebaseApp.firestore();
+
+export { database, auth, firestore };

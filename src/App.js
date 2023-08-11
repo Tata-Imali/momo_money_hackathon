@@ -5,19 +5,20 @@ import TokenBalancesView from './BorrowerOperations/checkBalance';
 import TokenRequestView from './BorrowerOperations/tokenRequest';
 import DisplayTokenRequests from './AdminOperations/checkRequests';
 import TopUp from './BorrowerOperations/TopUp';
-import KYC from './AdminOperations/kyc.js';
-import SignupPage from './Onboarding/SignUp.js';
-import LoginPage from './Onboarding/login.js';
-import { auth } from './Firebase/config';
+import KYC from './AdminOperations/kyc';
+import SignupPage from './Onboarding/SignUp';
+import LoginPage from './Onboarding/login';
+
 import './App.css';
 import logoH from './Branding/hedera-logo.png';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState('');
 
-  // Function to be passed to the LoginPage component
-  const handleLogin = () => {
+  const handleLogin = (userType) => {
     setIsLoggedIn(true);
+    setUserType(userType);
   };
 
   return (
@@ -27,19 +28,28 @@ function App() {
           <Routes>
             {isLoggedIn ? (
               <>
-                <Route path="/transfer" element={<TransferForm />} />
-                <Route path="/balance" element={<TokenBalancesView />} />
-                <Route path="/request" element={<TokenRequestView />} />
-                <Route path="/display" element={<DisplayTokenRequests />} />
-                <Route path="/topup" element={<TopUp />} />
-                <Route path="/kyc" element={<KYC />} />
+                {userType === 'Borrower' && (
+                  <>
+                    <Route path="/topup" element={<TopUp />} />
+                    <Route path="/tokenrequest" element={<TokenRequestView />} />
+                    <Route path="/transfer" element={<TransferForm />} />
+                    <Route path="/checkbalance" element={<TokenBalancesView />} />
+                  </>
+                )}
+                {userType === 'Admin' && (
+                  <>
+                    <Route path="/kyc" element={<KYC />} />
+                    <Route path="/checkrequests" element={<DisplayTokenRequests />} />
+                  </>
+                )}
               </>
             ) : (
               <>
                 <Route path="/signup" element={<SignupPage />} />
                 <Route
                   path="/login"
-                  element={<LoginPage onLogin={handleLogin} />} />
+                  element={<LoginPage onLogin={handleLogin} setUserType={setUserType} />}
+                />
                 <Route path="/*" element={<Navigate to="/signup" />} />
               </>
             )}
@@ -51,36 +61,44 @@ function App() {
         {isLoggedIn && (
           <nav>
             <ul className="nav-links">
-              <li>
-                <Link to="/transfer" className="nav-link">
-                  Repayments
-                </Link>
-              </li>
-              <li>
-                <Link to="/balance" className="nav-link">
-                  Accounts
-                </Link>
-              </li>
-              <li>
-                <Link to="/request" className="nav-link">
-                  Request Loan
-                </Link>
-              </li>
-              <li>
-                <Link to="/display" className="nav-link">
-                  My Requests
-                </Link>
-              </li>
-              <li>
-                <Link to="/topup" className="nav-link">
-                  Top Up
-                </Link>
-              </li>
-              <li>
-                <Link to="/kyc" className="nav-link">
-                  KYC Request
-                </Link>
-              </li>
+              {userType === 'Borrower' && (
+                <>
+                  <li>
+                    <Link to="/topup" className="nav-link">
+                      Top Up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/tokenrequest" className="nav-link">
+                      Request Loan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/transfer" className="nav-link">
+                      Repayments
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/checkbalance" className="nav-link">
+                      Check Balance
+                    </Link>
+                  </li>
+                </>
+              )}
+              {userType === 'Admin' && (
+                <>
+                  <li>
+                    <Link to="/kyc" className="nav-link">
+                      KYC
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/checkrequests" className="nav-link">
+                      Check Requests
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </nav>
         )}

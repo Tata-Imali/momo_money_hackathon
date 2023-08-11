@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import the Link component
 import { ToastContainer, toast } from 'react-toastify';
 import { auth } from '../Firebase/config';
+import { firestore } from '../Firebase/config';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 
@@ -12,8 +13,8 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
 
-  const handleSignup = async () => {
-    
+  const handleSignup = async (e) => {
+    e.preventDefault();
 
     if (password.length < 6) {
       toast.error('Password must be at least 6 characters long');
@@ -21,8 +22,14 @@ const SignupPage = () => {
     }
 
     try {
-      await auth.createUserWithEmailAndPassword(`${phoneNumber}@yourappdomain.com`, password);
+      const userCredential = await auth.createUserWithEmailAndPassword(`${phoneNumber}@yourappdomain.com`, password);
 
+      // Store additional user data, including user type, in Firestore
+    const userRef = firestore.collection('users').doc(userCredential.user.uid);
+    await userRef.set({
+      userType: userType,
+    });
+    
       toast.success('Sign up successful!');
     } catch (error) {
       console.error('Sign up error:', error);
@@ -36,7 +43,7 @@ const SignupPage = () => {
         <ToastContainer />
         <form className="auth-form" onSubmit={handleSignup}>
           <div className="logo-container">
-            <img src={logo} alt="Logo" className="logo-signup" />
+            <img src={logo} alt="Logo" className="logo" />
           </div>
           <h2>Sign Up</h2>
           <div>

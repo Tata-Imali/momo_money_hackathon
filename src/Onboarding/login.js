@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { auth } from '../Firebase/config';
+import { firestore } from '../Firebase/config';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 
 import './login.css';
 
-const LoginPage = ({ onLogin }) => {
+const LoginPage = ({ onLogin, setUserType }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,11 +16,22 @@ const LoginPage = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      await auth.signInWithEmailAndPassword(`${phoneNumber}@yourappdomain.com`, password);
+      const userCredential = await auth.signInWithEmailAndPassword(
+        `${phoneNumber}@yourappdomain.com`,
+        password
+      );
 
-      toast.success('Login successful!');
-      onLogin(); // Trigger the onLogin prop to update the state
+      // Retrieve user type from Firestore
+      const userDoc = await firestore.collection('users').doc(userCredential.user.uid).get();
 
+      if (userDoc.exists) {
+        const userType = userDoc.data().userType;
+        toast.success('Login successful!');
+        onLogin(true); // Indicate that the user is logged in
+        setUserType(userType); // Set the user type
+      } else {
+        toast.error('User not found.');
+      }
     } catch (error) {
       console.error('Login error:', error);
       toast.error('Error logging in. Please check your credentials.');
