@@ -9,6 +9,7 @@ import KYC from './AdminOperations/kyc';
 import SignupPage from './Onboarding/SignUp';
 import LoginPage from './Onboarding/login';
 import WelcomeScreen from './Onboarding/welcome'; // Import the WelcomeScreen component
+import WelcomeScreenAdmin from './Onboarding/welcomeAdmin'; // Import the WelcomeScreen component
 
 import './App.css';
 import logoH from './Branding/hedera-logo.png';
@@ -32,11 +33,13 @@ function App() {
       <div className="App">
         <div className="view-container">
           <Routes>
-            <Route
+          <Route
               path="/welcome"
               element={
                 isLoggedIn && userType === 'Borrower' ? (
                   <WelcomeScreen />
+                ) : userType === 'Admin' ? (
+                  <WelcomeScreenAdmin />
                 ) : (
                   <Navigate to="/signup" />
                 )
@@ -140,3 +143,4 @@ function App() {
 }
 
 export default App;
+
