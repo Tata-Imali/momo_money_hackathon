@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 import './welcome.css'; // Create a corresponding CSS file for styling
 
-function WelcomeScreen() {
+function WelcomeScreenAdmin() {
   return (
     <div className="welcome-screen-container">
       <div className="logo-container">
@@ -17,4 +17,4 @@ function WelcomeScreen() {
   );
 }
 
-export default WelcomeScreen;
+export default WelcomeScreenAdmin;
