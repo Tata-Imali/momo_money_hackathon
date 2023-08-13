@@ -15,7 +15,7 @@
 .password-logo {
   margin-top: 20px;
   margin-bottom: 0px;
-  max-width: 120px; /* Adjust the width as needed */
+  max-width: 180px; /* Adjust the width as needed */
 }
 
 .password-form {
@@ -73,7 +73,7 @@ h2 {
 }
 
 .token-logo {
-  max-width: 165px; /* Adjust the width as needed */
+  max-width: 180px; /* Adjust the width as needed */
   margin: 10px 0 0;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 import './welcome.css'; // Create a corresponding CSS file for styling
+import dp from '../Branding/Jermone.png';
 
 function WelcomeScreen() {
   return (
@@ -11,6 +12,9 @@ function WelcomeScreen() {
       <div className="welcome-message">
         <h2>Welcome </h2>
         <p id="usersName">Jérôme</p>
+        <div className="logo-container">
+        <img src={dp} alt="Logo" className="logooo" />
+      </div>
         <p id="welcome-info-text" >Your personal financial revolution awaits</p>
       </div>
     </div>
