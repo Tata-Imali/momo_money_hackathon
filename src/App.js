@@ -106,8 +106,8 @@ function App() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/transfer" className="nav-link">
-                      Repayments
+                    <Link to="/cashout" className="nav-link">
+                      Cash Out
                     </Link>
                   </li>
                   <li>
@@ -116,8 +116,8 @@ function App() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/cashout" className="nav-link">
-                      Cash Out
+                    <Link to="/transfer" className="nav-link">
+                      Repayments
                     </Link>
                   </li>
                 </>
