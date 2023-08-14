@@ -4,6 +4,7 @@ import TransferForm from './BorrowerOperations/transferForm';
 import TokenBalancesView from './BorrowerOperations/checkBalance';
 import TokenRequestView from './BorrowerOperations/tokenRequest';
 import DisplayTokenRequests from './AdminOperations/checkRequests';
+import CashOut from './BorrowerOperations/CashOut';
 import TopUp from './BorrowerOperations/TopUp';
 import KYC from './AdminOperations/kyc';
 import SignupPage from './Onboarding/SignUp';
@@ -33,7 +34,7 @@ function App() {
       <div className="App">
         <div className="view-container">
           <Routes>
-          <Route
+            <Route
               path="/welcome"
               element={
                 isLoggedIn && userType === 'Borrower' ? (
@@ -65,6 +66,7 @@ function App() {
               <>
                 {userType === 'Borrower' && (
                   <>
+                    <Route path="/cashout" element={<CashOut />} />
                     <Route path="/topup" element={<TopUp />} />
                     <Route path="/tokenrequest" element={<TokenRequestView />} />
                     <Route path="/transfer" element={<TransferForm />} />
@@ -113,6 +115,11 @@ function App() {
                       Top Up
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/cashout" className="nav-link">
+                      Cash Out
+                    </Link>
+                  </li>
                 </>
               )}
               {userType === 'Admin' && (
@@ -143,4 +150,3 @@ function App() {
 }
 
 export default App;
-
