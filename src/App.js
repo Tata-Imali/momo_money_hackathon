@@ -7,6 +7,7 @@ import DisplayTokenRequests from './AdminOperations/checkRequests';
 import CashOut from './BorrowerOperations/CashOut';
 import TopUp from './BorrowerOperations/TopUp';
 import KYC from './AdminOperations/kyc';
+import CreditScore from './AdminOperations/creditScore';
 import SignupPage from './Onboarding/SignUp';
 import LoginPage from './Onboarding/login';
 import WelcomeScreen from './Onboarding/welcome'; // Import the WelcomeScreen component
@@ -77,6 +78,7 @@ function App() {
                   <>
                     <Route path="/kyc" element={<KYC />} />
                     <Route path="/checkrequests" element={<DisplayTokenRequests />} />
+                    <Route path="/creditscore" element={<CreditScore />} />
                   </>
                 )}
                 <Route path="/logout" element={<Navigate to="/login" />} />
@@ -132,6 +134,11 @@ function App() {
                   <li>
                     <Link to="/checkrequests" className="nav-link">
                       Check Requests
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/creditscore" className="nav-link">
+                      Credit Score
                     </Link>
                   </li>
                 </>
