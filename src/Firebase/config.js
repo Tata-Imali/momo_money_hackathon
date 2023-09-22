@@ -6,15 +6,16 @@ import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCrYLjeiWV5hBjD5T1NsTZetAIM7AMcZIs",
-    authDomain: "tata-imali.firebaseapp.com",
-    databaseURL: "https://tata-imali-default-rtdb.firebaseio.com/",
-    projectId: "tata-imali",
-    storageBucket: "tata-imali.appspot.com",
-    messagingSenderId: "466924111082",
-    appId: "1:466924111082:web:52190e793d1bad77c60393",
-    measurementId: "G-NZZ3G80NNY"
-  };
+  apiKey: "AIzaSyC1lqwgT6n7vbe43i_M6XTp0wY2A-LXLBE",
+  authDomain: "tata-imali-xrpl.firebaseapp.com",
+  databaseURL: "https://tata-imali-xrpl-default-rtdb.firebaseio.com",
+  projectId: "tata-imali-xrpl",
+  storageBucket: "tata-imali-xrpl.appspot.com",
+  messagingSenderId: "368259944692",
+  appId: "1:368259944692:web:305f83fd0851ff7db88ea1"
+};
+
+  
 
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -30,4 +31,4 @@ const firestore = firebaseApp.firestore();
 
 export { database, auth, firestore };
 
-// This is a test 
+
