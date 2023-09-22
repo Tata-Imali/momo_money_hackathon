@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
-import { database } from '../Firebase/config'; // Import database instance
-import { Client, TransferTransaction } from '@hashgraph/sdk';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './checkRequests.css';
-
-const client = Client.forTestnet();
-client.setOperator('0.0.450078', '0xd8db27a1af00d3b0a93f504fc13184de26d40cc08a5fe59b87379734fb125f34');
+import { database } from '../Firebase/config'; // Import the database instance
+if (typeof module !== "undefined") {
+  // Use var here because const/let are block-scoped to the if statement.
+  var xrpl = require('xrpl');
+}
 
 function DisplayTokenRequests() {
   const [password, setPassword] = useState('');
@@ -15,6 +15,7 @@ function DisplayTokenRequests() {
   const [tokenRequests, setTokenRequests] = useState([]);
 
   useEffect(() => {
+    // Use the imported 'database' instance
     const tokenRequestsRef = database.ref('token-requests');
 
     tokenRequestsRef
@@ -46,21 +47,50 @@ function DisplayTokenRequests() {
 
   async function acceptRequest(request) {
     try {
-      // Transfer the desired amount of tokens from the sender's account to the receiver's account
-      const transaction = await new TransferTransaction()
-        .addTokenTransfer('0.0.450186', request.senderAccountId, -request.desiredAmount)
-        .addTokenTransfer('0.0.450186', request.receiverAccountId, request.desiredAmount)
-        .execute(client);
+      const client = new xrpl.Client('wss://s.altnet.rippletest.net:51233');
+      console.log("Connecting to Testnet...");
+      await client.connect();
 
-      console.log('Transaction ID:', transaction.transactionId);
+      // Use the provided account credentials for the receiver account
+      const receiver_wallet = xrpl.Wallet.fromSeed('sEd7Jux5F8vU63jWoNejCk3HEZckSta');
 
-      const tokenRequestsRef = database.ref('token-requests');
-      await tokenRequestsRef.child(request.id).remove();
+      // Extract transaction details from the request object
+      const { desiredAmount, receiverAccountId } = request;
 
-      // Show success notification
-      toast.success('Token transfer accepted successfully!', { autoClose: 3000 });
+      // Prepare the transaction to transfer the desired amount of tokens from sender to receiver
+      const transfer_tx = {
+        TransactionType: 'Payment',
+        Account: receiver_wallet.address,
+        Amount: {
+          currency: 'ZAR', // Replace with the currency code you are using
+          value: desiredAmount.toString(),
+          issuer: 'rPBnJTG63f17dAa7m1Vm43UHNs8Yj8muoz', // Replace with the issuer's account ID
+        },
+        Destination: receiverAccountId
+      };
 
-      
+      const prepared_tx = await client.autofill(transfer_tx);
+      const signed_tx = receiver_wallet.sign(prepared_tx);
+
+      console.log(`Sending ${desiredAmount} YOUR_CURRENCY from sender to receiver...`);
+
+      const result = await client.submitAndWait(signed_tx.tx_blob);
+      if (result.result.meta.TransactionResult == "tesSUCCESS") {
+        console.log(`Transaction succeeded: https://testnet.xrpl.org/transactions/${signed_tx.hash}`);
+
+        // Remove the token request using the imported 'database' instance
+        const tokenRequestsRef = database.ref('token-requests');
+        await tokenRequestsRef.child(request.id).remove();
+
+        // Show success notification
+        toast.success('Token transfer accepted successfully!', { autoClose: 3000 });
+
+       
+      } else {
+        throw `Error sending transaction: ${result.result.meta.TransactionResult}`;
+      }
+
+      client.disconnect();
     } catch (error) {
       console.error('Error accepting token request:', error);
     }
@@ -68,21 +98,24 @@ function DisplayTokenRequests() {
 
   async function rejectRequest(request) {
     try {
-      
+      // Remove the token request using the imported 'database' instance
       const tokenRequestsRef = database.ref('token-requests');
       await tokenRequestsRef.child(request.id).remove();
 
       // Show success notification
       toast.error('Token transfer rejected!', { autoClose: 3000 });
 
-      
+      // Reload the page after the notification disappears
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } catch (error) {
       console.error('Error rejecting token request:', error);
     }
   }
 
   const filteredRequests = tokenRequests.filter(
-    (request) => request.senderAccountId === '0.0.450078'
+    (request) => request.senderAccountId === 'rBtJV7ZfphGij1R6JAfLa2GGQ4UtB4qNB6'
   );
 
   if (!showTokenRequests) {
@@ -92,7 +125,7 @@ function DisplayTokenRequests() {
           <img src={logo} alt="Logo" className="password-logo" />
         </div>
         <div className="password-form">
-          <h2>Enter Password </h2>
+          <h2>Enter Password</h2>
           <input
             type="password"
             placeholder="Password"
@@ -125,7 +158,7 @@ function DisplayTokenRequests() {
               <tr>
                 <td className="table-cell">Amount:</td>
                 <td className="table-cell left">
-                  <span className="desired-amount">{(request.desiredAmount * 0.01).toFixed(2)}</span>
+                  <span className="desired-amount">{(request.desiredAmount).toFixed(2)}</span>
                 </td>
               </tr>
             </React.Fragment>
@@ -147,10 +180,6 @@ function DisplayTokenRequests() {
       <ToastContainer />
     </div>
   );
-
-
-
-
 }
 
 export default DisplayTokenRequests;
