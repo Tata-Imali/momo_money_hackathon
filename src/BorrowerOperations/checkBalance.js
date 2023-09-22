@@ -1,85 +1,89 @@
 import React, { useState } from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
-import { Client, AccountId, PrivateKey, AccountBalanceQuery, TokenInfoQuery } from "@hashgraph/sdk";
+import { Client, Wallet } from 'xrpl'; // Import the XRPL library
 import './checkBalance.css';
 
 function TokenBalancesView() {
-  const [tokenBalance, setTokenBalance] = useState(null);
+  const [xrpBalance, setXrpBalance] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleCheckBalance = async () => {
     setIsLoading(true);
 
+    // Create an XRPL client
+    const client = new Client('wss://s.altnet.rippletest.net:51233');
+
     try {
-      // Create a new Hedera client
-      const client = Client.forTestnet();
+      console.log('Connecting to XRPL...');
+      await client.connect();
 
-      // Set your account ID and private key
-      const myAccountId = AccountId.fromString("0.0.447190");
-      const myPrivateKey = PrivateKey.fromString("0x81d3fa5c13d3620295a583e202e042d61093f325e12f58c4b768c25703cdd677");
+      // XRPL account details
+      const borrowerAddress = 'rLcSMxXAmvxzMhiirizpCsiGftRQxZa2Gb';
+      const borrowerSecret = 'sEdTVBUzCxRMG972Zdi2wTvzSq4TR8m';
+      const assetCode = 'ZAR';
+      const issuerAddress = 'rPBnJTG63f17dAa7m1Vm43UHNs8Yj8muoz';
 
-      // Connect to the Hedera network
-      await client.setOperator(myAccountId, myPrivateKey);
+      // Create an XRPL Wallet
+      const borrowerWallet = Wallet.fromSeed(borrowerSecret);
 
-      // Replace with the specific token ID you want to check
-      const specificTokenId = "0.0.450186";
+      // Request XRPL account lines
+      const borrowerBalances = await client.request({
+        command: 'account_lines',
+        account: borrowerWallet.address,
+        ledger_index: 'validated',
+      });
 
-      // Retrieve token balance for the specific token
-      const balanceQuery = new AccountBalanceQuery()
-        .setAccountId(myAccountId)
-        .execute(client);
-
-      const balances = await balanceQuery;
-
-      const specificTokenBalance = balances.tokens.get(specificTokenId);
-
-      if (specificTokenBalance !== undefined) {
-        const tokenInfoQuery = new TokenInfoQuery()
-          .setTokenId(specificTokenId)
-          .execute(client);
-
-        const tokenInfo = await tokenInfoQuery;
-
-        const tokenBalanceWithName = {
-          tokenName: tokenInfo.name,
-          tokenId: specificTokenId,
-          balance: specificTokenBalance
-        };
-
-        setTokenBalance(tokenBalanceWithName); // Store the balance of the specific token
-      } else {
-        setTokenBalance(null); // Clear the token balance if the specific token isn't found
+      // Extract ZAR balance
+      let zarBalance = '0';
+      if (
+        borrowerBalances.result &&
+        borrowerBalances.result.lines &&
+        Array.isArray(borrowerBalances.result.lines)
+      ) {
+        const lines = borrowerBalances.result.lines;
+        for (const line of lines) {
+          if (line.currency === assetCode && line.account === issuerAddress) {
+            zarBalance = line.balance;
+            break;
+          }
+        }
       }
-    } catch (error) {
-      console.error("Error retrieving token balance:", error);
-    }
 
-    setIsLoading(false);
+      console.log(`Borrower account balance for ${assetCode}: ${zarBalance}`);
+      setXrpBalance(zarBalance);
+    } catch (error) {
+      console.error('Error retrieving XRPL balance:', error);
+    } finally {
+      // Disconnect the XRPL client
+      console.log('Disconnecting from XRPL...');
+      client.disconnect();
+      setIsLoading(false);
+    }
   };
 
-  const TokenInfoTable = () => (
+  const XRPLBalanceTable = () => (
     <table
       style={{
         color: '#FFFFFF',
         margin: '0 auto',
         borderCollapse: 'collapse',
-        border: 'px solid black',
+        border: '1px solid black',
         backgroundColor: '#363636',
         width: '50%', // Adjust the width as needed
       }}
     >
       <tbody>
         <tr>
-          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px' }}>Token Name:</td>
-          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px', color: '#D5FF0A' }}>{tokenBalance.tokenName.toString()}</td>
+          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px' }}>Asset Code:</td>
+          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px', color: '#D5FF0A' }}>ZAR</td>
         </tr>
         <tr>
-          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px' }}>Token ID:</td>
-          <td style={{ padding: '8px', border: '1px solid black', fontSize: '10px' }}>{tokenBalance.tokenId.toString()}</td>
+          <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px' }}>Issuer Address:</td>
+          <td style={{ padding: '8px', border: '1px solid black', fontSize: '10px' }}>rPBnJTG63f17dAa7m1Vm43UHNs8Yj8muoz</td>
         </tr>
         <tr>
           <td style={{ padding: '8px', border: '1px solid black', fontSize: '12px' }}>Balance:</td>
-          <td style={{ padding: '8px', border: '1px solid black', fontSize: '16px', color: '#6BFE53' }}>{(tokenBalance.balance / 100).toFixed(2)}</td>
+          <td style={{ padding: '8px', border: '1px solid black', fontSize: '16px', color: '#6BFE53' }}>{xrpBalance}</td>
         </tr>
       </tbody>
     </table>
@@ -91,14 +95,14 @@ function TokenBalancesView() {
         <img src={logo} alt="Logo" className="logooo" />
       </div>
       <div className="token-balances-view">
-        <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>Accounts</h2>
-        <p className="info-text">Check your iMali balance below</p>
+        <h2 style={{ fontSize: '16px', color: '#FFFFFF' }}>XRPL Account Balance</h2>
+        <p className="info-text">Check your XRPL balance below</p>
         <button onClick={handleCheckBalance}>Check Balance</button>
         {isLoading ? (
           <p style={{ fontSize: '16px', color: '#FFFFFF' }}>Loading...</p>
         ) : (
           <div style={{ textAlign: 'center' }}>
-            {tokenBalance ? <TokenInfoTable /> : <p style={{ fontSize: '12px', color: '#FFFFFF' }}></p>}
+            {xrpBalance !== null ? <XRPLBalanceTable /> : <p style={{ fontSize: '12px', color: '#FFFFFF' }}></p>}
           </div>
         )}
       </div>
@@ -107,6 +111,3 @@ function TokenBalancesView() {
 }
 
 export default TokenBalancesView;
-
-
-
