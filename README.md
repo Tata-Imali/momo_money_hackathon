@@ -15,7 +15,7 @@
 
 ## Introduction
 
-Welcome to Tata-iMali, a groundbreaking financial technology platform built on the XRP Ledger (XRPL). Our mission is to revolutionize micro-credit by providing innovative and accessible financial solutions. Tata-iMali harnesses the power of blockchain technology to deliver efficient, transparent, and secure micro-credit services, empowering individuals and businesses to achieve their financial goals.
+Welcome to Tata-iMali, a groundbreaking financial technology platform built on the XRP Ledger (XRPL). Our mission is to revolutionize micro-credit by providing innovative and accessible financial solutions. Tata-iMali harnesses the power of blockchain technology to deliver efficient, transparent, and secure micro-credit services, empowering lower income individuals in Africa against unforeseen expenses.
 
 **Machine Learning-Powered Credit Prediction**: In addition to blockchain technology, Tata-iMali utilizes advanced machine learning algorithms to predict credit scores for users without formal credit history. This innovative approach ensures that even individuals with limited financial records can access the micro-credit they need to thrive.
 
