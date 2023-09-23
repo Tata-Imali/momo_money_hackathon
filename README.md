@@ -10,7 +10,7 @@
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Running the Program](#running-the-program)
-- [Disclaimer and License](#Disclaimer and License)
+- [License](#License)
 
 ## Introduction
 
@@ -62,7 +62,7 @@ This command will initiate the necessary processes, and your program will start 
 
 Note: Make sure you have satisfied all the prerequisites and dependencies before running the program.
 
-## Code Submission Disclaimer and License
+## License
 
 The code submitted herewith is the proprietary and confidential intellectual property of Tata-iMali. It is provided solely for the purpose of evaluation and review by authorized representatives of the XRPL grants program. Unauthorized access, distribution, or sharing of this code is strictly prohibited and may be subject to legal action.
 
