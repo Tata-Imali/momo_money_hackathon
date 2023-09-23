@@ -64,7 +64,7 @@ Note: Make sure you have satisfied all the prerequisites and dependencies before
 
 ## License
 
-The code submitted herewith is the proprietary and confidential intellectual property of Tata-iMali. It is provided solely for the purpose of evaluation and review by authorized representatives of the XRPL grants program. Unauthorized access, distribution, or sharing of this code is strictly prohibited and may be subject to legal action.
+The code submitted herewith is the proprietary and confidential intellectual property of Tata-iMali. It is provided solely for the purpose of evaluation and review by authorized representatives of the XRPL grants program. Unauthorized access, distribution, or sharing of this code is strictly prohibited.
 
 By accessing and reviewing this code, you, as an authorized XRPL grants representative, agree to the following:
 
