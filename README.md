@@ -10,8 +10,7 @@
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Running the Program](#running-the-program)
-- [Contributing](#contributing)
-- [License](#license)
+- [Disclaimer and License](#Disclaimer and License)
 
 ## Introduction
 
@@ -62,3 +61,17 @@ npm start
 This command will initiate the necessary processes, and your program will start running.
 
 Note: Make sure you have satisfied all the prerequisites and dependencies before running the program.
+
+## Code Submission Disclaimer and License
+
+The code submitted herewith is the proprietary and confidential intellectual property of Tata-iMali. It is provided solely for the purpose of evaluation and review by authorized representatives of the XRPL grants program. Unauthorized access, distribution, or sharing of this code is strictly prohibited and may be subject to legal action.
+
+By accessing and reviewing this code, you, as an authorized XRPL grants representative, agree to the following:
+
+1. You are an authorized representative involved with the grant review process of the XRPL grants program.
+2. You will maintain the confidentiality of the code and will not share, distribute, or use it for any purpose other than the grant review.
+3. Your access to and review of this code does not grant you any rights, licenses, or permissions to use, modify, or distribute the code for any other purpose.
+
+Your cooperation and adherence to these terms are greatly appreciated.
+
+
