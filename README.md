@@ -1,8 +1,9 @@
 # Tata-iMali - Revolutionizing Micro-Credit on XRPL
 
-![Tata-iMali Logo](/path/to/logo.png)
+![Tata-iMali Logo](./src/Branding/Tata-iMali-logo-colour-transparent.png)
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Key Features](#key-features)
 - [Getting Started](#getting-started)
@@ -32,16 +33,16 @@ Welcome to Tata-iMali, a groundbreaking financial technology platform built on t
 
 ## Dependencies
 
-All project dependencies have been thoughtfully documented in the `package.json` file. 
+All project dependencies have been thoughtfully documented in the `package.json` file.
 
 ## Installation
 
 Follow these steps to install the required dependencies:
 
 - Open your terminal.
- 
+
 - Navigate to the root directory of your project.
- 
+
 - To install, run the following command:
 
 ```shell
@@ -53,9 +54,7 @@ npm install
 Once you have installed dependancies, you may start the program. To start the program, follow these steps:
 
 - Open your terminal.
-  
 - Navigate to the root directory of your project.
-  
 - Run the following command to start the program:
 
 ```shell
@@ -65,7 +64,3 @@ npm start
 This command will initiate the necessary processes, and your program will start running.
 
 Note: Make sure you have satisfied all the prerequisites and dependencies before running the program.
-
-
-
-
