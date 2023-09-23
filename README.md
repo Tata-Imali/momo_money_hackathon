@@ -28,6 +28,8 @@ Welcome to Tata-iMali, a pioneering financial technology platform built on the X
 
 - **Security and Decentralization**: With XRPL's decentralized infrastructure, Tata-iMali ensures the highest level of security for all financial activities while minimizing central points of failure.
 
+- **MTN Integration**: Tata-iMali seamlessly integrates with major African telecoms provider MTN's open API to obtain KYC (Know Your Customer) information and enables users to exchange the iMali-ZAR stablecoin for mobile money within the mobile money ecosystem.
+
 ## Dependencies
 
 All project dependencies have been thoughtfully documented in the `package.json` file.
