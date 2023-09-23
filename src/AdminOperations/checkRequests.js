@@ -106,9 +106,7 @@ function DisplayTokenRequests() {
       toast.error('Token transfer rejected!', { autoClose: 3000 });
 
       // Reload the page after the notification disappears
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      
     } catch (error) {
       console.error('Error rejecting token request:', error);
     }
