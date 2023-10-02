@@ -11,7 +11,7 @@
   - [Installation](#installation)
   - [Running the Program](#running-the-program)
 - [XRPL Code Structure](#xrpl-code-structure)
-  - [XRPLconfig.js](#xrpl-configuration-xrpl-configjs)
+  - [ConfigAndIssue.js](#xrpl-configuration-xrpl-configjs)
   - [checkRequests.js](#checkrequestsjs)
   - [checkBalance.js](#checkbalancejs)
   - [transferForm.js](#transferformjs)
