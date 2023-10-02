@@ -10,7 +10,12 @@
   - [Dependencies](#dependencies)
   - [Installation](#installation)
   - [Running the Program](#running-the-program)
-- [License](#License)
+- [XRPL Code Structure](#xrpl-code-structure)
+  - [XRPLconfig.js](#xrpl-configuration-xrpl-configjs)
+  - [checkRequests.js](#checkrequestsjs)
+  - [checkBalance.js](#checkbalancejs)
+  - [transferForm.js](#transferformjs)
+  - [License](#License)
 
 ## Introduction
 
@@ -64,6 +69,40 @@ This command will initiate the necessary processes, and your program will start 
 
 Note: Make sure you have satisfied all the prerequisites and dependencies before running the program.
 
+## XRPL Code Structure
+
+### XRPL Configuration
+
+Prerequisite: Create and fund three independent XRPL accounts with XRP using facet.
+
+- **Configure Cold Account Setting (Issuer Account):** Configure the settings for the cold account, which acts as the issuer account for the stablecoin.
+
+- **Configure Hot Account Settings (Capital Pool Account):** Configure the settings for the hot account, which serves as the capital pool account for lending.
+
+- **Create Rust Line:** Establish a trust line from the hot account to the cold account and then from the borrower's account to the hot account.
+
+- **Issue ZAR Stablecoin:** Use the issuer account to issue ZAR stablecoin and transfer it to the hot (capital pool) account.
+
+- **Transfer from Hot to Borrower:** Transfer funds from the hot account to the borrower's account as part of the loan disbursement process.
+
+- **Check Account Balances:** Verify the success of the configuration and transactions by checking the account balances.
+
+### checkRequests.js
+
+In this module:
+
+- The borrower's loan request query is obtained from the Firebase server.
+
+- The borrower's address and requested amount are appended to a transaction from the capital pool account to the borrower's end account. On approval of the loan, the transaction is signed and submitted.
+
+### checkBalance.js
+
+The borrower queries the balance of his iMali-ZAR stablecoin asset associated with his account.
+
+### transferForm.js
+
+The borrower specifies the amount he would like to repay. This amount is then appended to a transaction and transferred from the borrower's account to the capital pool account.
+
 ## License
 
 The code submitted herewith is the proprietary and confidential intellectual property of Tata-iMali. It is provided solely for the purpose of evaluation and review by authorized representatives of the XRPL grants program. Unauthorized access, distribution, or sharing of this code is strictly prohibited.
@@ -75,5 +114,3 @@ By accessing and reviewing this code, you, as an authorized XRPL grants represen
 3. Your access to and review of this code does not grant you any rights, licenses, or permissions to use, modify, or distribute the code for any other purpose.
 
 Your cooperation and adherence to these terms are greatly appreciated.
-
-
