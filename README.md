@@ -79,7 +79,7 @@ Prerequisite: Create and fund three independent XRPL accounts with XRP using fac
 
 - **Configure Hot Account Settings (Capital Pool Account):** Configure the settings for the hot account, which serves as the capital pool account for lending.
 
-- **Create Rust Line:** Establish a trust line from the hot account to the cold account and then from the borrower's account to the hot account.
+- **Create Tust Line:** Establish a trust line from the hot account to the cold account and then from the borrower's account to the hot account.
 
 - **Issue ZAR Stablecoin:** Use the issuer account to issue ZAR stablecoin and transfer it to the hot (capital pool) account.
 
