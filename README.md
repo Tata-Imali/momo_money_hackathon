@@ -71,7 +71,7 @@ Note: Make sure you have satisfied all the prerequisites and dependencies before
 
 ## XRPL Code Structure
 
-### XRPLconfig.js
+### ConfigAndIssue.js
 
 Prerequisite: Create and fund three independent XRPL accounts with XRP using facet.
 
