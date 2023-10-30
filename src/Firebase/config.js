@@ -6,13 +6,13 @@ import 'firebase/compat/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC1lqwgT6n7vbe43i_M6XTp0wY2A-LXLBE",
-  authDomain: "tata-imali-xrpl.firebaseapp.com",
-  databaseURL: "https://tata-imali-xrpl-default-rtdb.firebaseio.com",
-  projectId: "tata-imali-xrpl",
-  storageBucket: "tata-imali-xrpl.appspot.com",
-  messagingSenderId: "368259944692",
-  appId: "1:368259944692:web:305f83fd0851ff7db88ea1"
+  apiKey: "AIzaSyDf6xmvNH3wGTz8TzmRuOCBCg9odkis2w4",
+  authDomain: "tata-imali-xrpl-c289a.firebaseapp.com",
+  databaseURL: "https://tata-imali-xrpl-c289a-default-rtdb.firebaseio.com",
+  projectId: "tata-imali-xrpl-c289a",
+  storageBucket: "tata-imali-xrpl-c289a.appspot.com",
+  messagingSenderId: "426197014926",
+  appId: "1:426197014926:web:c7375179e84b588fc66cdf"
 };
 
   
