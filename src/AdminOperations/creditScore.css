@@ -1,5 +1,7 @@
 .credit-score-container {
     max-width: 400px;
+    min-height: 40rem;
+    height: 70vh;
     margin: 0 auto;
     padding: 20px;
     background: #1E1E1E;
