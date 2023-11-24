@@ -1,17 +1,14 @@
 /* TopUp.css */
 
 .top-up-container {
-    max-width: 400px;
+    max-width: 64rem;
+    min-height: 40rem;
     margin: 0 auto;
-    padding: 20px;
-    background: #1E1E1E;
-    border-radius: 4px;
     text-align: center;
-    border: 1px solid #000;
   }
   
   .top-up-logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   
   .top-up-logo {
@@ -30,16 +27,16 @@
   }
   
   .top-up-form-heading {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #FFFF;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   
   .top-up-label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 0.75rem;
     text-align: center;
     color: #FFFF;
   }
@@ -69,7 +66,7 @@
   }
 
   .info-text {
-    font-size: 8px;
+    font-size: 0.5rem;
     color: #D5FF0A;
     padding: 2px;
     border-radius: 4px;
@@ -78,5 +75,5 @@
   }
   
   .logoo-container {
-    text-align: right;
+    text-align: center;
   }

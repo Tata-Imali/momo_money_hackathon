@@ -1,96 +1,95 @@
 /* src/components/AuthPage.css */
 
 .auth-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1E1E1E;
-    border-radius: 4px;
-    color: #D4D4D4;
-    text-align: center;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  .auth-form h2 {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-bottom: 16px;
-  }
-  
-  .auth-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 10px;
-    color: #FFFFFF;
-  }
-  
-  .auth-form input,
-  .auth-form select {
-    width: 45%;
-    padding: 8px;
-    margin-bottom: 25px; /* Reduced margin between fields */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #C2C2C2;
-    color: black;
-  }
-  
-  .auth-form button {
-    display: block;
-    width: 40%;
-    margin: 20px auto; /* Increased margin below fields */
-    padding: 8px;
-    background-color: #D5FF0A;
-    color: #1E1E1E;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .auth-form button:hover {
-    background-color: #D5FF0A;
-  }
-  
-  .form-heading {
-    font-size: 16px;
-  }
-  
-  .form-section {
-    margin-top: 20px;
-  }
-  
-  .input-label {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  
-  .input-field {
-    text-align: center;
-  }
-  
-  .submit-button {
-    margin-top: 1px;
-  }
-  
-  .logo-signup {
-    width: 160px;
-    height: auto;
-  }
-  
-  .password-warning {
-    font-size: 8px;
-    color: #FE7253; /* Use the #FE7253 color or any other color you prefer */
-  }
+  max-width: 64rem;
+  min-height: 40rem;
+  height: 65vh;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1E1E1E;
+  border-radius: 4px;
+  color: #D4D4D4;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
 
-  .already-have-account {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 10px;
-    color: white;
-  }
+.auth-form h2 {
+  font-size: 1rem;
+  color: #D5FF0A;
+  margin-bottom: 1rem;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: #FFFFFF;
+}
+
+.auth-form input,
+.auth-form select {
+  width: 16rem;
+  padding: 0.5rem;
+  margin-bottom: 1.75rem; /* Reduced margin between fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+}
+
+.auth-form button {
+  display: block;
+  width: 10rem;
+  margin: 1.5rem auto; /* Increased margin below fields */
+  padding: 8px;
+  background-color: #D5FF0A;
+  color: #1E1E1E;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background-color: #D5FF0A;
+}
+
+.form-heading {
+  font-size: 1rem;
+}
+
+.form-section {
+  margin-top: 1.5rem;
+}
+
+.input-label {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  text-align: center;
+}
+
+.submit-button {
+  margin-top: 1px;
+}
+
+.logo-loginT {
+
+    max-width: 180px; /* Adjust the width as needed */
   
-  .already-have-account a {
-    color: #D5FF0A;
-    text-decoration: underline;
-  }
+}
+
+.already-have-account {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.new-user Link {
+  color: #D5FF0A;
+  text-decoration: none;
+}
+

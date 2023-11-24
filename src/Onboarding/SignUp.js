@@ -39,7 +39,6 @@ const SignupPage = () => {
 
   return (
     <div>
-      <div className="container">
         <ToastContainer />
         <form className="auth-form" onSubmit={handleSignup}>
           <div className="logo-container">
@@ -47,7 +46,7 @@ const SignupPage = () => {
           </div>
           <h2>Sign Up</h2>
           <div>
-            <label htmlFor="phoneNumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
             <input
               type="tel"
               id="phoneNumber"
@@ -57,7 +56,7 @@ const SignupPage = () => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -70,7 +69,7 @@ const SignupPage = () => {
             )}
           </div>
           <div>
-            <label htmlFor="userType">User Type:</label>
+            <label htmlFor="userType">User Type</label>
             <select
               id="userType"
               value={userType}
@@ -87,7 +86,6 @@ const SignupPage = () => {
           </p>
         </form>
       </div>
-    </div>
   );
 };
 

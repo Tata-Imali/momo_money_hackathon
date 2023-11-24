@@ -48,7 +48,7 @@ const LoginPage = ({ onLogin, setUserType }) => {
           </div>
           <h2>Login</h2>
           <div>
-            <label htmlFor="phoneNumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
             <input
               type="tel"
               id="phoneNumber"
@@ -58,7 +58,7 @@ const LoginPage = ({ onLogin, setUserType }) => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -69,7 +69,7 @@ const LoginPage = ({ onLogin, setUserType }) => {
           </div>
           <button type="submit">Login</button>
           <p className="new-user">
-            New user? <Link to="/signup">Sign up</Link>
+            New user? <Link className="link-decor" to="/signup">Sign up</Link>
           </p>
         </form>
       </div>

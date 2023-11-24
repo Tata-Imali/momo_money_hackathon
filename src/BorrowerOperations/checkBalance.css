@@ -1,13 +1,9 @@
 .token-balances-view-container {
     max-width: 400px;
+    min-height: 40rem;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #1E1E1E;
-    border-radius: 4px;
-    border: 1px solid #000;
-    
   }
-  
+
 .token-balances-view {
     text-align: center;
   }

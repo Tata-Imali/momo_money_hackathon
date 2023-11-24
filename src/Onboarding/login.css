@@ -1,44 +1,47 @@
 /* src/components/Login.css */
 
 .auth-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #1E1E1E;
-    border-radius: 4px;
-    color: #D4D4D4;
-    text-align: center;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
+  max-width: 64rem;
+  min-height: 40rem;
+  height: 65vh;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1E1E1E;
+  border-radius: 4px;
+  color: #D4D4D4;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
   
   .auth-form h2 {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: #D5FF0A;
+    margin-bottom: 2.5rem;
   }
   
   .auth-form label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 1rem;
     color: #FFFFFF;
   }
   
   .auth-form input,
   .auth-form select {
-    width: 45%;
-    padding: 8px;
-    margin-bottom: 25px; /* Reduced margin between fields */
+    width: 16rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem; /* Reduced margin between fields */
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #C2C2C2;
+    background-color: white;
     color: black;
   }
   
   .auth-form button {
     display: block;
-    width: 40%;
+    width: 10rem;
     margin: 20px auto; /* Increased margin below fields */
     padding: 8px;
     background-color: #D5FF0A;
@@ -47,7 +50,7 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
   .auth-form button:hover {
     background-color: #D5FF0A;
   }

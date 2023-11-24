@@ -15,6 +15,8 @@ import WelcomeScreenAdmin from './Onboarding/welcomeAdmin'; // Import the Welcom
 
 import './App.css';
 import logoH from './Branding/hedera-logo.png';
+import logoo from './Branding/MTN-momo.png';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,7 +35,17 @@ function App() {
   return (
     <Router>
       <div className="App">
+
         <div className="view-container">
+          <nav className="nav-links-top">
+          {isLoggedIn && (
+                <div>
+                  <Link to="/logout" onClick={handleLogout} className="nav-link">
+                    Logout
+                  </Link>
+                </div>
+          )}
+          </nav>
           <Routes>
             <Route
               path="/welcome"
@@ -88,18 +100,14 @@ function App() {
               <Route path="/*" element={<Navigate to="/signup" />} />
             )}
           </Routes>
-        </div>
-        <div className="logo-containerHm">
-          <img src={logoH} alt="Logo2" className="logoHm" />
-        </div>
-        {isLoggedIn && (
+          {isLoggedIn && (
           <nav>
             <ul className="nav-links">
               {userType === 'Borrower' && (
                 <>
                   <li>
                     <Link to="/checkbalance" className="nav-link">
-                      Check Balance
+                      Account
                     </Link>
                   </li>
                   <li>
@@ -143,14 +151,13 @@ function App() {
                   </li>
                 </>
               )}
-              <li>
-                <Link to="/logout" onClick={handleLogout} className="nav-link">
-                  Logout
-                </Link>
-              </li>
             </ul>
           </nav>
-        )}
+          )}
+        </div>
+        <div className="logo-containerHm">
+          <img src={logoH} alt="Built_on_hedera" className="logoHm" />
+        </div>
       </div>
     </Router>
   );
