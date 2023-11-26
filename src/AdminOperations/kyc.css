@@ -1,16 +1,10 @@
 /* KYC.css */
 
 .kyc-container {
-    max-width: 400px;
     min-height: 40rem;
     height: 70vh;
     margin: 0 auto;
-    padding: 20px;
-    background: #1E1E1E;
-    border-radius: 4px;
-    text-align: center;
-    border: 1px solid #000;
-  }
+    text-align: center;  }
   
   .kyc-form {
     text-align: center;
