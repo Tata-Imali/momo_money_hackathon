@@ -18,7 +18,7 @@ function TokenBalancesView() {
       await client.connect();
 
       // XRPL account details
-      const borrowerAddress = 'rLcSMxXAmvxzMhiirizpCsiGftRQxZa2Gb';
+      // const borrowerAddress = 'rLcSMxXAmvxzMhiirizpCsiGftRQxZa2Gb';
       const borrowerSecret = 'sEdTVBUzCxRMG972Zdi2wTvzSq4TR8m';
       const assetCode = 'ZAR';
       const issuerAddress = 'rPBnJTG63f17dAa7m1Vm43UHNs8Yj8muoz';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Client, AccountId, PrivateKey, TokenAssociateTransaction, TokenWipeTransaction } from '@hashgraph/sdk';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './tokenRequest.css';
@@ -13,7 +12,7 @@ function TokenRequestView() {
   const [desiredAmount, setDesiredAmount] = useState('');
   const [interestRate, setInterestRate] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
-  const [requestDate, setRequestDate] = useState('');
+  // const [requestDate, setRequestDate] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
 
   const handleTokenRequest = async () => {
@@ -47,13 +46,11 @@ function TokenRequestView() {
     const amount = parseFloat(desiredAmount) ; // Move decimal point 2 steps to the left
     const interest = (amount * 0.2).toFixed(2); // 20% interest rate
     const currentDate = new Date();
-    const requestDate = currentDate.toISOString();
     const expiryDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()).toISOString();
     const total = (amount + parseFloat(interest)).toFixed(2);
 
     setInterestRate(interest);
     setTotalAmount(total);
-    setRequestDate(requestDate);
     setExpiryDate(expiryDate);
 
     toast.info(`Total Amount: ${total}`, { autoClose: 3000 });

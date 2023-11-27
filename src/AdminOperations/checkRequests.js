@@ -75,7 +75,7 @@ function DisplayTokenRequests() {
       console.log(`Sending ${desiredAmount} YOUR_CURRENCY from sender to receiver...`);
 
       const result = await client.submitAndWait(signed_tx.tx_blob);
-      if (result.result.meta.TransactionResult == "tesSUCCESS") {
+      if (result.result.meta.TransactionResult === "tesSUCCESS") {
         console.log(`Transaction succeeded: https://testnet.xrpl.org/transactions/${signed_tx.hash}`);
 
         // Remove the token request using the imported 'database' instance
@@ -87,7 +87,7 @@ function DisplayTokenRequests() {
 
        
       } else {
-        throw `Error sending transaction: ${result.result.meta.TransactionResult}`;
+        throw new Error(`Error sending transaction: ${result.result.meta.TransactionResult}`);
       }
 
       client.disconnect();

@@ -15,7 +15,6 @@ import WelcomeScreenAdmin from './Onboarding/welcomeAdmin'; // Import the Welcom
 
 import './App.css';
 import logoH from './Branding/hedera-logo.png';
-import logoo from './Branding/MTN-momo.png';
 
 
 function App() {

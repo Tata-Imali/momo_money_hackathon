@@ -43,7 +43,7 @@ function TransferForm() {
         toast.success('Tokens transferred successfully!', { autoClose: 3000 }); // Display success message
         
       } else {
-        throw `Error sending transaction: ${result.result.meta.TransactionResult}`;
+        throw new Error(`Error sending transaction: ${result.result.meta.TransactionResult}`);
       }
     } catch (error) {
       console.error('An error occurred:', error);
