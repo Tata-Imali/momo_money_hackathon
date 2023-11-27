@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from '../Branding/Tata-iMali-logo-colour-transparent.png';
 import './TopUp.css';
 import logoo from '../Branding/MTN-momo.png';
-import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
